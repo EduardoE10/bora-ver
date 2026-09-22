@@ -182,8 +182,68 @@ img {
 
 
 .marca {
-    font-size: 1.5rem;
-    font-weight: bold;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.3em;
+    color: var(--cor-texto);
+    font-family: "Syne", sans-serif;
+    font-size: clamp(1.35rem, 2.5vw, 1.8rem);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.06em;
+}
+
+
+.marca-nome, .marca-bora {
+    display: inline-flex;
+    align-items: center;    
+}
+
+
+.marca-nome {
+    gap: 0.28em;
+}
+
+
+.marca-bora {
+    gap: 0.015em;
+}
+
+
+.marca-janela {
+    width: 0.78em;
+    aspect-ratio: 1;
+    overflow: hidden;
+    flex: 0 0 auto;
+    border: 0.07em solid currentColor;
+    border-radius: 32%;
+    background-color: var(--cor-azul);
+    transition: transform 180ms ease, border-color 180ms ease;
+}
+
+
+.marca-janela img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.marca-ver {
+    color: var(--cor-destaque);
+    font-size: 0.62em;
+    letter-spacing: 0.08em;
+}
+
+.marca:hover {
+    color: var(--cor-texto);
+}
+
+.marca:hover .marca-janela,
+.marca:focus-visible .marca-janela {
+    transform: scale(1.08);
+    border-color: var(--cor-destaque);
 }
 
 
@@ -259,5 +319,5 @@ img {
 @media (prefers-reduced-motion: reduce) {
     html {
         scroll-behavior: auto;
-    }   
+    }
 }
