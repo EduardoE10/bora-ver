@@ -1,77 +1,172 @@
 @charset "UTF-8";
 
 :root {
-    --cor-fundo: #101218;
-    --cor-superficie: #1B202B;
-    --cor-texto: #F5F7FA;
-    --cor-secundaria: #B8C0CC;
-    --cor-destaque: #FFD166; 
+    --cor-fundo: #090A0F;
+    --cor-superficie: #15161D;
+    --cor-texto: #F7F3EB;
+    --cor-texto-secundario: #B9B5BE;
+    --cor-destaque: #FF4F70;
+    --cor-azul: #2346A8;
+    --fonte-titulos: "Space Grotesk", sans-serif;
+    --fonte-textos: "Manrope", sans-serif;
+    --largura-conteudo: 1440px;
+    --espaco-lateral: clamp(20px, 5vw, 72px);
+    --espaco-secao: clamp(56px, 8vw, 112px);
+    --raio-medio: 12px;
 }
+
+
+html {
+    scroll-behavior: smooth;
+}
+
 
 * {
     box-sizing: border-box;
 }
 
+
 body {
+    min-width: 320px;
     margin: 0;
     background-color: var(--cor-fundo);
     color: var(--cor-texto);
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--fonte-textos);
     line-height: 1.6;
 }
 
+
 main {
-    max-width: 1120px;
-    margin: auto;
-    padding: 24px 20px;    
+    width: 100%;    
 }
+
 
 main a {
         text-decoration-line:underline;
 }
 
+
+button, input, select, textarea {
+    font: inherit
+}
+
+
 a {
-    color: var(--cor-destaque);
+    color: inherit;
     text-decoration: none;
 }
 
-h1 {
-    font-size: 2rem;
+
+a:hover {
+    color: var(--cor-destaque);
 }
 
-h2 {
-    font-size: 1.5rem;
+
+a:focus-visible, button:focus-visible, input:focus-visible {
+    outline: 3px solid var(--cor-destaque);
+    outline-offset: 4px;
 }
+
+
+h1, h2, h3 {
+    margin-top: 0;
+    font-family: var(--fonte-titulos);
+    line-height: 1.1;    
+}
+
+
+h1 {
+    font-size: clamp(2.75rem, 7vw, 3.25rem);
+}
+
+
+h2 {
+    font-size: clamp(1.75rem, 4vw, 3.25rem);
+}
+
 
 h3 {
     font-size: 1.2rem;
 }
 
-header, footer {
+
+p {
+    margin-top: 0;
+}
+
+
+.cabecalho, footer {
     background-color: var(--cor-superficie);
     padding: 20px;    
 }
 
-section {
-    padding: 0;
-    margin: 0 0 32px;
+
+.hero-contexto,
+.estado-secao,
+.cabecalho-secao p,
+.cabecalho-busca p {
+    color: var(--cor-texto-secundario);
 }
+
+
+.secao-conteudo, .painel-busca {
+width: min(
+    calc(100% - (var(--espaco-lateral) * 2)),
+    var(--largura-conteudo)
+);
+margin-inline: auto;
+padding-block: var(--espaco-secao);
+}
+
+
+.hero {
+    min-height: 70svh;
+    display: grid;
+    align-content: end;
+    gap: 24px;
+    padding: var((--espaco-lateral));
+    background: 
+    linear-gradient(180deg, transparent 20%, var(--cor-fundo) 100%),
+    linear-gradient(135deg, var(--cor-azul), var(--cor-superficie));
+}
+
+
+.hero-conteudo {
+    max-width: 720px;
+}
+
+
+.hero-resumo {
+    max-width: 60ch;
+    color: var(--cor-texto-secundario);
+}
+
+
+.hero-acoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
 
 .card-filme {
     background-color: var(--cor-superficie);
     padding: 20px;
     margin-bottom: 16px;
-    border-radius: 8px;
+    border-radius: var(--raio-medio)
 }
+
 
 img {
     max-width: 100%;
     height: auto;
 }
 
+
 .texto-apoio {
-    color: var(--cor-secundaria);
+    color: var(--cor-texto-secundario);
 }
+
 
 .cabecalho {
     display:flex;
@@ -82,16 +177,19 @@ img {
     gap: 16px;
 }
 
+
 .navegacao {
     display: flex;
     flex-wrap: wrap;
     gap: 16px;
 }
 
+
 .marca {
     font-size: 1.5rem;
     font-weight: bold;
 }
+
 
 .grade-filmes {
     display: grid;
@@ -100,9 +198,11 @@ img {
     
 }
 
+
 .grade-filmes .card-filme {
     margin-bottom: 0;
 }
+
 
 @media (min-width: 600px) {
     .grade-filmes {
@@ -110,11 +210,13 @@ img {
     }
 }
 
+
 @media (min-width: 900px) {
     .grade-filmes {
         grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 }
+
 
 .detalhes-filme {
     display: grid;
@@ -123,11 +225,13 @@ img {
     align-items: start;
 }
 
+
 @media (min-width: 768px) {
     .detalhes-filme {
         grid-template-columns: 240px minmax(0, 1fr);
     }
 }
+
 
 .poster-filme,
 .poster-ausente {
@@ -138,17 +242,26 @@ img {
     border-radius: 6px;
 }
 
+
 .poster-filme {
     height: auto;
     object-fit: cover;
     background-color: #0b0d12;
 }
 
+
 .poster-ausente {
     display: grid;
     place-items: center;
     padding: 16px;
     background-color: #0b0d12;
-    color: var(--cor-secundaria);
+    color: var(--cor-texto-secundario);
     text-align: center;
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }   
 }
