@@ -10,60 +10,139 @@
 <body>
     <header id="boraver" class="cabecalho">
         <a class="marca" href="index.html">Bora Ver</a>
+
         <nav class="navegacao" aria-label="Principal">
-            <a href="index.html">Catálogo</a>
-            <a href="sobre.html">Sobre</a>    
-        </nav>        
+            <a href="#em-alta">Em alta</a>
+            <a href="series.html">Séries</a>
+            <a href="#descobrir">Descobrir</a>
+            <a href="sobre.html">Sobre</a>
+        </nav>
+
+        <a class="atalho-busca" href="#busca-global">Pesquisar</a>
     </header>
 
+    <section id="busca-global" class="painel-busca" aria-labelledby="titulo-busca">
+        <header class="cabecalho-busca">
+            <h2 id="titulo-busca">Pesquisar filmes, séries e pessoas</h2>
+            <p>Por enquanto, a busca existente continua consultando somente filmes.</p>
+        </header>
+
+        <form id="formulario-titulo">
+            <label for="campo-titulo">Título do filme</label>
+            <input id="campo-titulo" name="titulo" type="text">
+            <button type="submit">Buscar</button>
+        </form>
+
+        <p id="retorno-titulo" role="status"></p>
+
+        <div class="grade-filmes"></div>
+    </section>
 
     <main>
-        <h1>Bora ver - Seu guia de filmes e séries</h1>
-        <p>Menos tempo procurando, mais tempo assistindo. Descubra histórias para o seu próximo play.</p>
+        <section class="hero" aria-labelledby="titulo-destaque">
+            <div class="hero-conteudo">
+                <p class="hero-contexto">Em alta nesta semana</p>
 
+                <h1 id="titulo-destaque">Uma história para começar</h1>
 
+                <p class="hero-resumo">
+                    O destaque real será carregado da API em um próximo bloco.
+                </p>
 
-        
-        <section aria-labelledby="titulo-busca">
-            <h2 id="titulo-busca">Buscar Filmes</h2>
-            <p>Pesquise filmes no catálogo do TMDB.</p>
-
-            <form id="formulario-titulo">
-                <label for="campo-titulo">Título do Filme</label>
-                <input id="campo-titulo" name="titulo" type="text">
-                <button type="submit">Buscar</button>
-            </form>
-
-            <p id="retorno-titulo" role="status"></p>
-        </section> 
-                       
-        
-
-
-
-        <section>
-            <h2>Destaque: <a href="filme.html">Interestelar</a></h2>
-            <p>um filme de ficção científica dirigido por Christopher Nolan</p>
-        </section>
-
-        <section>
-            <h2>Explore os filmes</h2>
-            <div class="grade-filmes">
-                
+                <div class="hero-acoes">
+                    <a href="filme.html">Ver detalhes</a>
+                    <a href="#em-alta">Explorar o Top 10</a>
+                </div>
             </div>
 
+            <p class="indicador-rolagem">Role para descobrir</p>
+        </section>
+
+        <section id="em-alta" class="secao-conteudo" aria-labelledby="titulo-em-alta">
+            <header class="cabecalho-secao">
+                <h2 id="titulo-em-alta">Top 10 em alta nesta semana</h2>
+            </header>
+
+            <p class="estado-secao">
+                O primeiro carrossel será construído detalhadamente no V2A-06.
+            </p>
+
+            <div id="trilho-em-alta" class="trilho"></div>
+        </section>
+
+        <section id="descobrir" class="secao-conteudo" aria-labelledby="titulo-descobrir">
+            <header class="cabecalho-secao">
+                <h2 id="titulo-descobrir">Encontre sua próxima história</h2>
+                <p>Descubra por tipo, período, gênero, nota e onde assistir.</p>
+            </header>
+
+            <div id="entrada-descoberta"></div>
+        </section>
+
+        <section id="nos-cinemas" class="secao-conteudo" aria-labelledby="titulo-cinemas">
+            <header class="cabecalho-secao">
+                <h2 id="titulo-cinemas">Nos cinemas</h2>
+            </header>
+
+            <div id="trilho-cinemas" class="trilho"></div>
+        </section>
+
+        <section id="streamings" class="secao-conteudo" aria-labelledby="titulo-streamings">
+            <header class="cabecalho-secao">
+                <h2 id="titulo-streamings">Nos streamings</h2>
+                <p>Todos os serviços ou somente os escolhidos pelo usuário.</p>
+            </header>
+
+            <div id="trilho-streamings" class="trilho"></div>
+        </section>
+
+        <section id="series-destaque" class="secao-conteudo" aria-labelledby="titulo-series">
+            <header class="cabecalho-secao">
+                <h2 id="titulo-series">Séries em destaque</h2>
+            </header>
+
+            <div id="trilho-series" class="trilho"></div>
+        </section>
+
+        <section id="melhores-avaliados" class="secao-conteudo" aria-labelledby="titulo-avaliados">
+            <header class="cabecalho-secao">
+                <h2 id="titulo-avaliados">Muito bem avaliados</h2>
+                <p>A nota será acompanhada por uma quantidade mínima de votos.</p>
+            </header>
+
+            <div id="trilho-avaliados" class="trilho"></div>
+        </section>
+
+        <section id="generos" class="secao-conteudo" aria-labelledby="titulo-generos">
+            <header class="cabecalho-secao">
+                <h2 id="titulo-generos">Explore por gênero</h2>
+            </header>
+
+            <div id="controles-generos"></div>
+            <div id="trilho-generos" class="trilho"></div>
+        </section>
+
+        <section id="bora-descobrir" class="secao-conteudo" aria-labelledby="titulo-editorial">
+            <header class="cabecalho-secao">
+                <p>Seleção editorial</p>
+                <h2 id="titulo-editorial">Bora descobrir?</h2>
+            </header>
+
+            <div id="selecao-editorial"></div>
         </section>
     </main>
 
     <footer>
-        <p>Bora Ver - Filmes e Séries</p>
-        <ul>
-            <li><a href="index.html">Catálogo</a></li>
-            <li><a href="sobre.html">Sobre</a></li>
-        </ul>
+        <p>Bora Ver — Filmes e séries</p>
+        <p>Menos tempo procurando. Mais tempo assistindo.</p>
+
+        <nav aria-label="Rodapé">
+            <a href="index.html">Início</a>
+            <a href="series.html">Séries</a>
+            <a href="sobre.html">Sobre e créditos</a>
+        </nav>
     </footer>
 
     <script src="js/interacao.js"></script>
-
 </body>
 </html>
