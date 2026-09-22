@@ -41,13 +41,9 @@ main {
 }
 
 
-main a {
-        text-decoration-line:underline;
-}
-
 
 button, input, select, textarea {
-    font: inherit
+    font: inherit;
 }
 
 
@@ -76,7 +72,7 @@ h1, h2, h3 {
 
 
 h1 {
-    font-size: clamp(2.75rem, 7vw, 3.25rem);
+    font-size: clamp(2.75rem, 7vw, 6.25rem);
 }
 
 
@@ -124,7 +120,7 @@ padding-block: var(--espaco-secao);
     display: grid;
     align-content: end;
     gap: 24px;
-    padding: var((--espaco-lateral));
+    padding: var(--espaco-lateral);
     background: 
     linear-gradient(180deg, transparent 20%, var(--cor-fundo) 100%),
     linear-gradient(135deg, var(--cor-azul), var(--cor-superficie));
@@ -153,7 +149,7 @@ padding-block: var(--espaco-secao);
     background-color: var(--cor-superficie);
     padding: 20px;
     margin-bottom: 16px;
-    border-radius: var(--raio-medio)
+    border-radius: var(--raio-medio);
 }
 
 
