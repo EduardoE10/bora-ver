@@ -1,0 +1,154 @@
+@charset "UTF-8";
+
+:root {
+    --cor-fundo: #101218;
+    --cor-superficie: #1B202B;
+    --cor-texto: #F5F7FA;
+    --cor-secundaria: #B8C0CC;
+    --cor-destaque: #FFD166; 
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+}
+
+main {
+    max-width: 1120px;
+    margin: auto;
+    padding: 24px 20px;    
+}
+
+main a {
+        text-decoration-line:underline;
+}
+
+a {
+    color: var(--cor-destaque);
+    text-decoration: none;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
+h3 {
+    font-size: 1.2rem;
+}
+
+header, footer {
+    background-color: var(--cor-superficie);
+    padding: 20px;    
+}
+
+section {
+    padding: 0;
+    margin: 0 0 32px;
+}
+
+.card-filme {
+    background-color: var(--cor-superficie);
+    padding: 20px;
+    margin-bottom: 16px;
+    border-radius: 8px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.texto-apoio {
+    color: var(--cor-secundaria);
+}
+
+.cabecalho {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.navegacao {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.marca {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.grade-filmes {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+    
+}
+
+.grade-filmes .card-filme {
+    margin-bottom: 0;
+}
+
+@media (min-width: 600px) {
+    .grade-filmes {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 900px) {
+    .grade-filmes {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+.detalhes-filme {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+    align-items: start;
+}
+
+@media (min-width: 768px) {
+    .detalhes-filme {
+        grid-template-columns: 240px minmax(0, 1fr);
+    }
+}
+
+.poster-filme,
+.poster-ausente {
+    display: block;
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    margin-bottom: 16px;
+    border-radius: 6px;
+}
+
+.poster-filme {
+    height: auto;
+    object-fit: cover;
+    background-color: #0b0d12;
+}
+
+.poster-ausente {
+    display: grid;
+    place-items: center;
+    padding: 16px;
+    background-color: #0b0d12;
+    color: var(--cor-secundaria);
+    text-align: center;
+}

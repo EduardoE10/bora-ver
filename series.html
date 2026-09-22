@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pesquisa experimental de séries do Bora Ver">
+    <title>Buscar séries | Bora Ver</title>
+    <link rel="stylesheet" href="js/series.js">
+</head>
+
+<body>
+    <header>
+        <a href="index.html">Bora Ver</a>
+    </header>
+
+    <main>
+        <h1>Buscar Séries</h1>
+        <p>Pesquisa experimental com dados fornecidos pelo TVmaze.</p>
+
+        <form id="formulario-serie">
+            <label for="campo-serie">Nome da Série</label>
+            <input id="campo-series" name="series" type="search" required>
+            <button type="submit">Buscar</button>
+        </form>
+
+        <p id="estado-series" role="status"></p>
+        <ul id="lista-series"></ul>
+    </main>
+
+    <footer>
+        <p>Dados de séries: <a href="https://www.tvmaze.com/">TVmaze</a>.</p>
+    </footer>
+
+    <script src="js/series.js"></script>
+    
+    </body>
+</html>

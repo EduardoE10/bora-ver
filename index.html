@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bora Ver - Filmes e Séries</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+
+<body>
+    <header id="boraver" class="cabecalho">
+        <a class="marca" href="index.html">Bora Ver</a>
+        <nav class="navegacao" aria-label="Principal">
+            <a href="index.html">Catálogo</a>
+            <a href="sobre.html">Sobre</a>    
+        </nav>        
+    </header>
+
+
+    <main>
+        <h1>Bora ver - Seu guia de filmes e séries</h1>
+        <p>Menos tempo procurando, mais tempo assistindo. Descubra histórias para o seu próximo play.</p>
+
+
+
+        
+        <section aria-labelledby="titulo-busca">
+            <h2 id="titulo-busca">Buscar Filmes</h2>
+            <p>Pesquise filmes no catálogo do TMDB.</p>
+
+            <form id="formulario-titulo">
+                <label for="campo-titulo">Título do Filme</label>
+                <input id="campo-titulo" name="titulo" type="text">
+                <button type="submit">Buscar</button>
+            </form>
+
+            <p id="retorno-titulo" role="status"></p>
+        </section> 
+                       
+        
+
+
+
+        <section>
+            <h2>Destaque: <a href="filme.html">Interestelar</a></h2>
+            <p>um filme de ficção científica dirigido por Christopher Nolan</p>
+        </section>
+
+        <section>
+            <h2>Explore os filmes</h2>
+            <div class="grade-filmes">
+                
+            </div>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>Bora Ver - Filmes e Séries</p>
+        <ul>
+            <li><a href="index.html">Catálogo</a></li>
+            <li><a href="sobre.html">Sobre</a></li>
+        </ul>
+    </footer>
+
+    <script src="js/interacao.js"></script>
+
+</body>
+</html>
