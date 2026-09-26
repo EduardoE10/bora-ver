@@ -6,7 +6,7 @@ const retorno = document.querySelector("#retorno-titulo");
 
 
 const filmes = [
-    { titulo: "Interestelar", resumo: "Melhor filme de ficção científica", detalhe: "filme.html"},
+    {titulo: "Interestelar", resumo: "Melhor filme de ficção científica", detalhe: "filme.html"},
     {titulo: "Cidade de Deus", resumo: "Tráfico de Drogas ", detalhe: null},
     {titulo: "Se beber não case", resumo: "Comédia foda! ", detalhe: null},
     {titulo: "O Poderoso Chefão", resumo: "Maior filme de todos os tempos", detalhe: null},
@@ -34,7 +34,7 @@ function criarCapaDoCard(filme) {
 
     return posterAusente;
 }
-
+ 
 function criarCard(filme) {
     const card = document.createElement("article");
     card.className = "card-filme";
@@ -80,6 +80,7 @@ function mostrarFilmes(lista) {
         grade.appendChild(card);
     }
 }
+
 
 
 
@@ -184,12 +185,5 @@ formulario.addEventListener("submit", async function (evento) {
         console.error(erro);
     }
 });
-
-
-
-
-
-
-
 
 mostrarFilmes(filmes);

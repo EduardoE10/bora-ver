@@ -16,12 +16,89 @@ const cabecalhosJson = {
 };
 
 
+
+async function consultarColecao(caminhoTMDB, incluirRegiãoBrasil) {
+    const url = new URL("http://api.themoviedb.org/3 + caminhoTMDB");
+    url.searchParams.set("region", "BR")
+
+    if (incluirRegiaoBrasil) {
+        url.searchParams.set("region", "BR");
+    }
+
+    const opcoes = {
+        headers: {
+            Authorization: "Bearer " + token,
+            accept: "application/json"
+        }
+    };
+
+    const respostaIMDB = await fech(url, opcoes);
+
+    if (!respostaIMDB.ok) {
+        throw new Error("TMDB respondeu com HTTP " + respostaIMDB.status);
+    }
+
+    const dados = await respostaIMDB.json;
+    
+    if (!Array.isArray(dados.results)) {
+        throw new Error("A coleção não trouxe uma lista de resultados.");
+    }
+
+    return dados.results;
+}
+
+
+const livro = {
+    titulo: "Duna",
+    idioma:"pt"
+};
+
 const servidor = http.createServer(async function (requisicao, resposta) {
     const caminhoRecebido = requisicao.url;
     const baseLocal = "http://127.0.0.1:3000";
     const urlLocal = new URL(caminhoRecebido, baseLocal);
     const metodo = requisicao.method;
     const caminho = urlLocal.pathname;
+
+
+    if (metodo === "GET" && caminho === "/api/home") {
+    const consultas = [
+        consultarColecao("/trending/movie/week", false),
+        consultarColecao("/movie/now_playing", true),
+        consultarColecao("/trending/tv/week", false)
+    ];
+
+    const resultados = await Promise.allSettled(consultas);
+
+    const nomes = ["emAlta", "cinemas", "series"];
+    const dadosHome = {
+        emAlta: [],
+        cinemas: [],
+        series: [],
+        falhas: []
+    };
+
+    for (let indice = 0; indice < resultados.length; indice += 1) {
+        const resultado = resultados[indice];
+        const nome = nomes[indice];
+
+        if (resultado.status === "fulfilled") {
+            dadosHome[nome] = resultado.value;
+        } else {
+            dadosHome.falhas.push(nome);
+            console.error("Falha em " + nome + ":", resultado.reason);
+        }
+    }
+
+    const todasFalharam = dadosHome.falhas.length === nomes.length;
+    const codigoHttp = todasFalharam ? 502 : 200;
+
+    resposta.writeHead(codigoHttp, cabecalhosJson);
+    resposta.end(JSON.stringify(dadosHome));
+    return;
+}
+
+
 
     if (metodo !== "GET" || caminho !== "/api/filmes") {
         const mensagem = { erro: "Rota não encontrada." };
